@@ -9,7 +9,7 @@ on:
 env:
   # name of docker image
   DOCKER_HUB_USER: sinlov
-  IMAGE_NAME: template-docker-runtime-alpine
+  IMAGE_NAME: docker-lua-with-rakefile
   DOCKER_IMAGE_PLATFORMS: linux/amd64
 
 jobs:

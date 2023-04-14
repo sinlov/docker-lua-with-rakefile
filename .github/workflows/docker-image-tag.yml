@@ -10,7 +10,7 @@ env:
   DOCKER_HUB_USER: sinlov
   IMAGE_BUILD_OS_NAME: alpine
   IMAGE_NAME: docker-lua-with-rakefile
-  DOCKER_IMAGE_PLATFORMS: linux/amd64,linux/386,linux/arm64,linux/arm
+  DOCKER_IMAGE_PLATFORMS: linux/amd64
 
 jobs:
   build:

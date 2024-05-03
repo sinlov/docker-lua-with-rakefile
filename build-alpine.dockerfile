@@ -5,14 +5,11 @@
 # maintainer="https://github.com/sinlov/docker-lua-with-rakefile"
 
 # https://hub.docker.com/r/nickblah/lua/tags
-FROM nickblah/lua:5.4.4
+FROM nickblah/lua:5.4.4-alpine
 
 #USER root
 
-# add component
-RUN apt update \
-  && apt install -y ca-certificates bash make ruby \
-  && apt autoclean -y \
-  && apt clean -y \
-  && apt autoremove -y \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk --no-cache add ca-certificates bash make ruby && \
+  rm -rf /var/cache/apk/* /tmp/* && \
+  gem install rake && \
+  gem cleanup

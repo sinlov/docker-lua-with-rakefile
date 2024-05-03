@@ -9,7 +9,7 @@
 name: docker-buildx-bake-hubdocker-latest
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-docker-buildx-bake-hubdocker-latest
+  group: ${{ github.workflow }}-${{ github.ref }}-docker-buildx-bake-hubdocker-${{ inputs.docker_bake_targets }}-latest
   # cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
   cancel-in-progress: false
 
@@ -21,9 +21,14 @@ on:
         default: false
         required: false
         type: boolean
-      docker_bake_target:
-        description: 'docker bake target'
-        default: 'image-all'
+      docker_bake_targets:
+        description: 'docker bake targets'
+        default: 'image'
+        required: false
+        type: string
+      docker_bake_matrix_target_postfix:
+        description: 'docker build matrix target postfix'
+        default: '-all'
         required: false
         type: string
       docker_bake_config_file_path:
@@ -59,7 +64,7 @@ jobs:
         name: Create matrix
         id: platforms
         run: |
-          echo "matrix=$(docker buildx bake ${{ inputs.docker_bake_target }} --print | jq -cr '.target."${{ inputs.docker_bake_target }}".platforms')" >>${GITHUB_OUTPUT}
+          echo "matrix=$(docker buildx bake ${{ inputs.docker_bake_targets }}${{inputs.docker_bake_matrix_target_postfix}} --print | jq -cr '.target."${{ inputs.docker_bake_targets }}${{inputs.docker_bake_matrix_target_postfix}}".platforms')" >>${GITHUB_OUTPUT}
       -
         name: Show matrix
         run: |
@@ -137,7 +142,7 @@ jobs:
           files: |
             ${{ inputs.docker_bake_config_file_path }}
             ${{ runner.temp }}/bake-meta.json
-          targets: image
+          targets: ${{ inputs.docker_bake_targets }}
           no-cache: ${{ inputs.docker-build-no-cache }}
           provenance: false
           sbom: false

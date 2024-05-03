@@ -36,26 +36,50 @@ target "image-all" {
   ]
 }
 
-// show config as: docker buildx bake --print image-debian
 target "image-debian" {
-  inherits = ["image-all"]
+  inherits = ["docker-metadata-action"]
   context = "."
   dockerfile = "build-debian.dockerfile"
   tags = ["${DEFAULT_TAG}-debian"]
 }
 
-// show config as: docker buildx bake --print image-alpine
+// show config as: docker buildx bake --print image-debian-all
+target "image-debian-all" {
+  inherits = ["image-debian"]
+  platforms = [
+    "linux/amd64",
+    "linux/arm64"
+  ]
+}
+
 target "image-alpine" {
-  inherits = ["image-all"]
+  inherits = ["docker-metadata-action"]
   context = "."
   dockerfile = "build-alpine.dockerfile"
   tags = ["${DEFAULT_TAG}-alpine"]
 }
 
-// show config as: docker buildx bake --print image-ubuntu
+// show config as: docker buildx bake --print image-alpine-all
+target "image-alpine-all" {
+  inherits = ["image-alpine"]
+  platforms = [
+    "linux/amd64",
+    "linux/arm64"
+  ]
+}
+
 target "image-ubuntu" {
-  inherits = ["image-all"]
+  inherits = ["docker-metadata-action"]
   context = "."
   dockerfile = "build-ubuntu.dockerfile"
   tags = ["${DEFAULT_TAG}-ubuntu"]
+}
+
+// show config as: docker buildx bake --print image-ubuntu-all
+target "image-ubuntu-all" {
+  inherits = ["image-ubuntu"]
+  platforms = [
+    "linux/amd64",
+    "linux/arm64"
+  ]
 }

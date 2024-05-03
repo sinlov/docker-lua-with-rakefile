@@ -31,16 +31,16 @@ bakeCheckConfigImageAll:
 	docker buildx bake --print image-all
 
 bakeCheckConfigImageAlpine:
-	$(info docker bake: image-alpine)
-	docker buildx bake --print image-alpine
+	$(info docker bake: image-alpine-all)
+	docker buildx bake --print image-alpine-all
 
 bakeCheckConfigImageDebian:
-	$(info docker bake: image-debian)
-	docker buildx bake --print image-debian
+	$(info docker bake: image-debian-all)
+	docker buildx bake --print image-debian-all
 
 bakeCheckConfigImageUbuntu:
-	$(info docker bake: image-ubuntu)
-	docker buildx bake --print image-ubuntu
+	$(info docker bake: image-ubuntu-all)
+	docker buildx bake --print image-ubuntu-all
 
 bakeCheckConfigAll: bakeCheckConfigImageAll bakeCheckConfigImageAlpine bakeCheckConfigImageDebian bakeCheckConfigImageUbuntu
 

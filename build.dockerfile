@@ -9,6 +9,11 @@ FROM nickblah/lua:5.4.3
 
 #USER root
 
+# add component with: mirrors.aliyun.com
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.old \
+  && sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
+  && sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+
 # add component
 RUN apt update \
   && apt install -y ca-certificates bash ruby \

@@ -62,14 +62,42 @@ jobs:
     uses: ./.github/workflows/docker-buildx-bake-hubdocker-latest.yml
     # if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' ) || github.base_ref == 'main' }}
     with:
-      # push_remote_flag: ${{ github.ref == 'refs/heads/main' }}
-      push_remote_flag: ${{ github.event.pull_request.merged == true }}
+      push_remote_flag: false
       docker_bake_targets: 'image-alpine'
+      docker-metadata-flavor-suffix: '-alpine'
     secrets:
       DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"
 
-  docker-buildx-bake-hubdocker-tag:
-    name: docker-buildx-bake-hubdocker-tag
+  docker-bake-debian-latest:
+    name: docker-bake-debian-latest
+    needs:
+      - version
+    uses: ./.github/workflows/docker-buildx-bake-hubdocker-latest.yml
+    # if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' ) || github.base_ref == 'main' }}
+    with:
+      push_remote_flag: false
+      docker_bake_targets: 'image-debian'
+      docker-metadata-flavor-suffix: '-debian'
+    secrets:
+      DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"
+
+  docker-bake-ubuntu-latest:
+    name: docker-bake-ubuntu-latest
+    needs:
+      - version
+    uses: ./.github/workflows/docker-buildx-bake-hubdocker-latest.yml
+    # if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' ) || github.base_ref == 'main' }}
+    with:
+      push_remote_flag: false
+      docker_bake_targets: 'image-ubuntu'
+      docker-metadata-flavor-suffix: '-ubuntu'
+    secrets:
+      DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"
+
+  ### deploy tag start
+
+  docker-bake-all-tag:
+    name: docker-bake-all-tag
     needs:
       - version
     uses: ./.github/workflows/docker-buildx-bake-hubdocker-tag.yml
@@ -82,7 +110,7 @@ jobs:
   deploy-tag:
     needs:
       - version
-      - docker-buildx-bake-hubdocker-tag
+      - docker-bake-all-tag
     name: deploy-tag
     uses: ./.github/workflows/deploy-tag.yml
     if: startsWith(github.ref, 'refs/tags/')
@@ -92,3 +120,5 @@ jobs:
       tag_name: ${{ needs.version.outputs.tag_name }}
       tag_changes: ${{ needs.version.outputs.cc_changes }}
       # download_artifact_name: foo-release
+
+  ### deploy tag end

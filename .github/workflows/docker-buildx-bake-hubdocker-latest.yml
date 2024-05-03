@@ -26,6 +26,11 @@ on:
         default: 'image'
         required: false
         type: string
+      docker-metadata-flavor-suffix:
+        description: 'docker metadata flavor suffix'
+        default: ''
+        required: false
+        type: string
       docker_bake_matrix_target_postfix:
         description: 'docker build matrix target postfix'
         default: '-all'
@@ -99,6 +104,10 @@ jobs:
           tags: |
             # set latest tag for main branch https://github.com/docker/metadata-action#latest-tag
             type=raw,value=latest,enable=true
+          flavor: |
+            latest=auto
+            suffix=${{ inputs.docker-metadata-flavor-suffix }}
+
       -
         name: Rename meta bake definition file
         run: |

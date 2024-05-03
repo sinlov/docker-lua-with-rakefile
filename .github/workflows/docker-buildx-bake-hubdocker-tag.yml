@@ -9,7 +9,7 @@
 name: docker-buildx-bake-hubdocker-tag
 
 # concurrency:
-#   group: ${{ github.workflow }}-${{ github.ref }}-docker-buildx-bake-hubdocker-tag
+#   group: ${{ github.workflow }}-${{ github.ref }}-docker-buildx-bake-hubdocker-${{ inputs.docker_bake_targets }}-tag
 #   cancel-in-progress: false
 
 on:
@@ -20,6 +20,21 @@ on:
         default: true
         required: false
         type: boolean
+      docker_bake_targets:
+        description: 'docker bake targets'
+        default: 'image'
+        required: false
+        type: string
+      docker-metadata-flavor-suffix:
+        description: 'docker metadata flavor suffix'
+        default: ''
+        required: false
+        type: string
+      docker_bake_matrix_target_postfix:
+        description: 'docker build matrix target postfix'
+        default: '-all'
+        required: false
+        type: string
       docker_bake_config_file_path:
         description: 'docker-bake file name'
         default: './docker-bake.hcl'
@@ -53,7 +68,7 @@ jobs:
         name: Create matrix
         id: platforms
         run: |
-          echo "matrix=$(docker buildx bake image-all --print | jq -cr '.target."image-all".platforms')" >>${GITHUB_OUTPUT}
+          echo "matrix=$(docker buildx bake ${{ inputs.docker_bake_targets }}${{inputs.docker_bake_matrix_target_postfix}} --print | jq -cr '.target."${{ inputs.docker_bake_targets }}${{inputs.docker_bake_matrix_target_postfix}}".platforms')" >>${GITHUB_OUTPUT}
       -
         name: Show matrix
         run: |
@@ -88,6 +103,10 @@ jobs:
           tags: |
             # type semver https://github.com/docker/metadata-action#typesemver
             type=semver,pattern={{version}}
+          flavor: |
+            latest=auto
+            suffix=${{ inputs.docker-metadata-flavor-suffix }}
+
       -
         name: Rename meta bake definition file
         run: |
@@ -131,7 +150,7 @@ jobs:
           files: |
             ${{ inputs.docker_bake_config_file_path }}
             ${{ runner.temp }}/bake-meta.json
-          targets: image
+          targets: ${{ inputs.docker_bake_targets }}
           no-cache: ${{ inputs.docker-build-no-cache }}
           provenance: false
           sbom: false

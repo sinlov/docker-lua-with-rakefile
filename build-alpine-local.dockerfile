@@ -5,14 +5,14 @@
 # maintainer="https://github.com/sinlov/docker-lua-with-rakefile"
 
 # https://hub.docker.com/r/nickblah/lua/tags
-FROM nickblah/lua:5.4.3-alpine
+FROM nickblah/lua:5.4.4-alpine
 
 #USER root
 
 # add alpine component with: mirrors.aliyun.com
 RUN cp /etc/apk/repositories /etc/apk/repositories.bak && \
   sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
-  apk --no-cache add ca-certificates bash ruby && \
+  apk --no-cache add ca-certificates bash make ruby && \
   rm -rf /var/cache/apk/* /tmp/*
 
 # proxy gem as gems.ruby-china.com

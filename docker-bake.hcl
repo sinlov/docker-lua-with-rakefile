@@ -36,10 +36,26 @@ target "image-all" {
   ]
 }
 
+// show config as: docker buildx bake --print image-debian
+target "image-debian" {
+  inherits = ["image-all"]
+  context = "."
+  dockerfile = "build-debian.dockerfile"
+  tags = ["${DEFAULT_TAG}-debian"]
+}
+
 // show config as: docker buildx bake --print image-alpine
 target "image-alpine" {
   inherits = ["image-all"]
   context = "."
-  dockerfile = "alpine.dockerfile"
+  dockerfile = "build-alpine.dockerfile"
   tags = ["${DEFAULT_TAG}-alpine"]
+}
+
+// show config as: docker buildx bake --print image-ubuntu
+target "image-ubuntu" {
+  inherits = ["image-all"]
+  context = "."
+  dockerfile = "build-ubuntu.dockerfile"
+  tags = ["${DEFAULT_TAG}-ubuntu"]
 }

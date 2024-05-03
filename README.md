@@ -20,6 +20,12 @@
   - semver-alpine [![Docker Image Version (tag)](https://img.shields.io/docker/v/nickblah/lua/alpine?style=social&label=nickblah%2Flua)](https://hub.docker.com/r/nickblah/lua/tags?name=alpine)
   - semver-ubuntu [![Docker Image Version (tag)](https://img.shields.io/docker/v/nickblah/lua/ubuntu?style=social&label=nickblah%2Flua)](https://hub.docker.com/r/nickblah/lua/tags?name=ubuntu)
 
+### feature
+
+- `5.4.4`
+  - support `debian` `alpine` `ubuntu`
+  - add `make`
+
 ### fast use
 
 ```bash
@@ -35,6 +41,7 @@ docker run --rm \
   bash -c ' \
   uname -asrm && \
   cat /etc/os-release && \
+  make --version && \
   ruby --version && \
   rake --version && \
   lua -v '

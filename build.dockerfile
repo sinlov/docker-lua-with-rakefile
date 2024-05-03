@@ -5,7 +5,7 @@
 # maintainer="https://github.com/sinlov/docker-lua-with-rakefile"
 
 # https://hub.docker.com/r/nickblah/lua/tags
-FROM nickblah/lua:5.4.3
+FROM nickblah/lua:5.4.4
 
 #USER root
 
@@ -16,7 +16,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.old \
 
 # add component
 RUN apt update \
-  && apt install -y ca-certificates bash ruby \
+  && apt install -y ca-certificates bash make ruby \
   && apt autoclean -y \
   && apt clean -y \
   && apt autoremove -y \

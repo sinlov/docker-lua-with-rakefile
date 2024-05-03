@@ -59,7 +59,7 @@ jobs:
         name: Create matrix
         id: platforms
         run: |
-          echo "matrix=$(docker buildx bake {{ inputs.docker_bake_config_file_path }} --print | jq -cr '.target."{{ inputs.docker_bake_config_file_path }}".platforms')" >>${GITHUB_OUTPUT}
+          echo "matrix=$(docker buildx bake ${{ inputs.docker_bake_target }} --print | jq -cr '.target."${{ inputs.docker_bake_target }}".platforms')" >>${GITHUB_OUTPUT}
       -
         name: Show matrix
         run: |

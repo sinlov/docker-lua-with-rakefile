@@ -42,8 +42,8 @@ jobs:
     uses: ./.github/workflows/version.yml
     secrets: inherit
 
-  docker-buildx-bake-hubdocker-latest:
-    name: docker-buildx-bake-hubdocker-latest
+  docker-bake-all-latest:
+    name: docker-bake-all-latest
     needs:
       - version
     uses: ./.github/workflows/docker-buildx-bake-hubdocker-latest.yml
@@ -55,8 +55,8 @@ jobs:
     secrets:
       DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"
 
-  docker-buildx-bake-hubdocker-alpine-latest:
-    name: docker-buildx-bake-hubdocker-latest
+  docker-bake-alpine-latest:
+    name: docker-bake-alpine-latest
     needs:
       - version
     uses: ./.github/workflows/docker-buildx-bake-hubdocker-latest.yml

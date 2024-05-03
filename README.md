@@ -1,16 +1,15 @@
 
+[![ci](https://github.com/sinlov/docker-lua-with-rakefile/actions/workflows/ci.yml/badge.svg)](https://github.com/sinlov/docker-lua-with-rakefile/actions/workflows/ci.yml)
+
 [![GitHub license](https://img.shields.io/github/license/sinlov/docker-lua-with-rakefile)](https://github.com/sinlov/docker-lua-with-rakefile)
 [![GitHub latest SemVer tag)](https://img.shields.io/github/v/tag/sinlov/docker-lua-with-rakefile)](https://github.com/sinlov/docker-lua-with-rakefile/tags)
 [![GitHub release)](https://img.shields.io/github/v/release/sinlov/docker-lua-with-rakefile)](https://github.com/sinlov/docker-lua-with-rakefile/releases)
 
+# docker-lua-with-rakefile
 
 [![docker version semver](https://img.shields.io/docker/v/sinlov/docker-lua-with-rakefile?sort=semver)](https://hub.docker.com/r/sinlov/docker-lua-with-rakefile)
 [![docker image size](https://img.shields.io/docker/image-size/sinlov/docker-lua-with-rakefile)](https://hub.docker.com/r/sinlov/docker-lua-with-rakefile)
 [![docker pulls](https://img.shields.io/docker/pulls/sinlov/docker-lua-with-rakefile)](https://hub.docker.com/r/sinlov/docker-lua-with-rakefile/tags?page=1&ordering=last_updated)
-
-# docker-lua-with-rakefile
-
-- docker hub see https://hub.docker.com/r/sinlov/docker-lua-with-rakefile
 
 ## for
 
@@ -22,11 +21,14 @@
 
 ### feature
 
+- docker hub see https://hub.docker.com/r/sinlov/docker-lua-with-rakefile
+
 - `5.4.4`
   - support `debian` `alpine` `ubuntu`
   - add `make`
 
 ### fast use
+
 
 ```bash
 # use as tty

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [convention-change-log](https://github.com/convention-change/convention-change-log) for commit guidelines.
 
+## [5.4.6](https://github.com/sinlov/docker-lua-with-rakefile/compare/5.4.5...v5.4.6) (2024-05-04)
+
+### Features
+
+* lua version 5.4.6 ([f4b0fe88](https://github.com/sinlov/docker-lua-with-rakefile/commit/f4b0fe88d51ca07c86303831e1130eb83c323819)), feat [#7](https://github.com/sinlov/docker-lua-with-rakefile/issues/7)
+
+### Miscellaneous
+
+* Merge pull request #8 from sinlov/7-feature-lua-version-546 ([1a63e144](https://github.com/sinlov/docker-lua-with-rakefile/commit/1a63e144a7f2b0abdc51a6527f1392f826bb713f))
+
 ## [5.4.5](https://github.com/sinlov/docker-lua-with-rakefile/compare/5.4.4...v5.4.5) (2024-05-04)
 
 ### Features

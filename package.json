@@ -1,6 +1,6 @@
 {
   "name": "docker-lua-with-rakefile",
-  "version": "5.4.5",
+  "version": "5.4.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sinlov/docker-lua-with-rakefile.git"

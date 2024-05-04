@@ -8,7 +8,7 @@ ROOT_NAME =docker-lua-with-rakefile
 
 # MakeDocker.mk settings start
 ROOT_OWNER =sinlov
-ROOT_PARENT_SWITCH_TAG :=5.4.4
+ROOT_PARENT_SWITCH_TAG :=5.4.5
 # for image local build
 INFO_TEST_BUILD_DOCKER_PARENT_IMAGE =nickblah/lua
 INFO_BUILD_DOCKER_FILE =Dockerfile

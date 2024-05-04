@@ -23,7 +23,7 @@
 
 - docker hub see https://hub.docker.com/r/sinlov/docker-lua-with-rakefile
 
-- `5.4.4`
+- `5.4.5`
   - support `debian` `alpine` `ubuntu`
   - add `make`
 

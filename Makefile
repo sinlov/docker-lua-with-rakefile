@@ -26,9 +26,9 @@ all: dockerTestRestartLatest
 
 clean: dockerTestPruneLatest
 
-bakeCheckConfigImageAll:
-	$(info docker bake: image-all)
-	docker buildx bake --print image-all
+bakeCheckConfigImageBasic:
+	$(info docker bake: image-basic-all)
+	docker buildx bake --print image-basic-all
 
 bakeCheckConfigImageAlpine:
 	$(info docker bake: image-alpine-all)
@@ -42,7 +42,7 @@ bakeCheckConfigImageUbuntu:
 	$(info docker bake: image-ubuntu-all)
 	docker buildx bake --print image-ubuntu-all
 
-bakeCheckConfigAll: bakeCheckConfigImageAll bakeCheckConfigImageAlpine bakeCheckConfigImageDebian bakeCheckConfigImageUbuntu
+bakeCheckConfigAll: bakeCheckConfigImageBasic bakeCheckConfigImageAlpine bakeCheckConfigImageDebian bakeCheckConfigImageUbuntu
 
 help: helpDocker
 	@echo "Before run this project in docker must install docker"

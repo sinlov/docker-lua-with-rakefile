@@ -5,7 +5,7 @@
 # maintainer="https://github.com/sinlov/docker-lua-with-rakefile"
 
 # https://hub.docker.com/r/nickblah/lua/tags
-FROM nickblah/lua:5.4.6-debian
+FROM nickblah/lua:5.4.7-debian
 
 #USER root
 

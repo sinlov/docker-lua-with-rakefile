@@ -19,6 +19,8 @@
   - semver-alpine [![Docker Image Version (tag)](https://img.shields.io/docker/v/nickblah/lua/alpine?style=social&label=nickblah%2Flua)](https://hub.docker.com/r/nickblah/lua/tags?name=alpine)
   - semver-ubuntu [![Docker Image Version (tag)](https://img.shields.io/docker/v/nickblah/lua/ubuntu?style=social&label=nickblah%2Flua)](https://hub.docker.com/r/nickblah/lua/tags?name=ubuntu)
 
+- lua version info see  [www.lua.org/versions](https://www.lua.org/versions.html)
+
 ### feature
 
 - docker hub see https://hub.docker.com/r/sinlov/docker-lua-with-rakefile
@@ -28,7 +30,6 @@
   - add `make` tools for build
 
 ### fast use
-
 
 ```bash
 # use as tty

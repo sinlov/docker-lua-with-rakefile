@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [convention-change-log](https://github.com/convention-change/convention-change-log) for commit guidelines.
 
+## [5.4.7](https://github.com/sinlov/docker-lua-with-rakefile/compare/5.4.6...v5.4.7) (2024-07-05)
+
+### Build System
+
+* version as 5.4.7 for lua ([6caad30b](https://github.com/sinlov/docker-lua-with-rakefile/commit/6caad30bd8e7a3d45d3b8706c2688016afa8aebc)), build [#10](https://github.com/sinlov/docker-lua-with-rakefile/issues/10)
+
+* bump docker/bake-action from 4 to 5 ([5ec73458](https://github.com/sinlov/docker-lua-with-rakefile/commit/5ec73458aa089a21653cc1fb7f10bbb3042ea6a2))
+
+### Miscellaneous
+
+* Merge pull request #11 from sinlov/10-feature-lua-547-version-release ([695a9e9e](https://github.com/sinlov/docker-lua-with-rakefile/commit/695a9e9ecf283ab112a2962ca1654c69feee796e))
+
+* Merge pull request #9 from sinlov/dependabot/github_actions/docker/bake-action-5 ([f0c124a4](https://github.com/sinlov/docker-lua-with-rakefile/commit/f0c124a4fde02cc200d2ee2599c584ded52e4754))
+
 ## [5.4.6](https://github.com/sinlov/docker-lua-with-rakefile/compare/5.4.5...v5.4.6) (2024-05-04)
 
 ### Features
